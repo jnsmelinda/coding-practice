@@ -8,7 +8,40 @@ public class ArraysAndStrings {
 //        replace(str);
 //        isPermutationOfPalindrome("tacc     at");
 //        isOneEditAway("abc", "abdc");
-        System.out.println(compressor("aaabgggcccc"));
+//        System.out.println(compressor("aaabgggcccc"));
+        int[][] arr = {{1,2,3,4},{4,5,6,7}, {7,8,9,10}, {3,3,3,3}};
+        printMatrix(arr);
+        rotate(arr);
+        System.out.println("---------------------------------");
+        printMatrix(arr);
+    }
+
+    public static void printMatrix(int[][] matrix) {
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[i].length; j++) {
+                if (matrix[i][j] < 100){
+                    System.out.print(matrix[i][j] + "  ");
+                }
+                else if (matrix[i][j] < 10){
+                    System.out.println(matrix[i][j] + "   ");
+                }
+
+            }
+            System.out.println();
+        }
+    }
+
+    public static void rotate(int[][] matrix) {
+        int n = matrix.length;
+        for (int i = 0; i < n / 2; i++) {
+            for (int j = 0; j < ((n + 1) / 2); j++) {
+                int temp = matrix[i][j];
+                matrix[i][j] = matrix[n - 1 - j][i];
+                matrix[n - 1 - j][i] = matrix[n - 1 - i][n - 1 - j];
+                matrix[n - 1 - i][n - 1 - j] = matrix[j][n - 1 - i];
+                matrix[j][n - 1 - i] = temp;
+            }
+        }
     }
 
     public static String compressor(String str) {
