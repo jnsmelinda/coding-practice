@@ -2,7 +2,10 @@ package likedlist;
 
 public class DeleteFromMiddle {
     private static void deleteFromMiddle(ListNode node) {
-        if (node != null || node.next != null) {
+        if (node == null || node.next == null) {
+            System.out.println("node or node.next is null");
+        }
+        else {
             node.data = node.next.data;
             node.next = node.next.next;
         }
@@ -10,8 +13,8 @@ public class DeleteFromMiddle {
 
     private static void remove(LinkedList list, ListNode node) {
         if (list.head != null) {
-            ListNode current = list.head;
-            while (current.next != null) {
+            ListNode current = list.head.next;
+            while (current != null) {
                 if (current.data == node.data) {
                     deleteFromMiddle(current);
                 }
@@ -27,7 +30,7 @@ public class DeleteFromMiddle {
             list.addToTail(element);
         }
         System.out.println(list);
-        ListNode node = new ListNode(1);
+        ListNode node = new ListNode(6);
         remove(list, node);
         System.out.println(list);
     }
