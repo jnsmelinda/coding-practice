@@ -35,22 +35,17 @@ public class Intersect {
         return currentBigger;
     }
 
-    private static LinkedList makeTheList(int[] arr) {
-        LinkedList list = new LinkedList();
-        for (int element : arr) {
-            list.addToTail(element);
-        }
-        return list;
-    }
-
     public static void main(String[] args) {
         int[] arr1 = {1,4,2,8,0,4,2,1};
-        LinkedList list1 = makeTheList(arr1);
+        LinkedList list1 = new LinkedList();
+        list1.makeTheList(arr1);
         System.out.println("list1: " + list1);
         int[] arr2 = {8,3,6,0,7,3,4,5,8};
-        LinkedList list2 = makeTheList(arr2);
+        LinkedList list2 = new LinkedList();
+        list2.makeTheList(arr2);
         System.out.println("list2: " + list2);
-
+        System.out.println();
+        
         list1.makeIntersection(list2, 2);
         System.out.println("newlist1: " + list1);
         System.out.println("newlist2: " + list2);

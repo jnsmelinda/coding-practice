@@ -30,6 +30,13 @@ public class LinkedList {
         size++;
     }
 
+    public LinkedList makeTheList(int[] arr) {
+        for (int element : arr) {
+            this.addToTail(element);
+        }
+        return this;
+    }
+
     public void makeIntersection(LinkedList other, int position) {
         if (position > other.size) {
             System.out.println("position is higher than size");
@@ -37,7 +44,7 @@ public class LinkedList {
         if (head == null) {
             System.out.println("empty list");
         }
-        
+
         else {
             int counter = 1;
             ListNode current = other.head;
@@ -48,6 +55,16 @@ public class LinkedList {
             getLast(this.head).next = current.next;
             size += other.size - counter;
         }
+    }
+
+    public void makeLoop(int position) {
+       int counter = 1;
+       ListNode current = this.head;
+       while (counter != position) {
+           counter++;
+           current = current.next;
+       }
+       getLast(this.head).next = current.next;
     }
 
     public ListNode getLast(ListNode current) {
