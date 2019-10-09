@@ -30,15 +30,18 @@ public class LinkedList {
         size++;
     }
 
-    public void addToLast(LinkedList other) {
-        ListNode node = other.head;
-        if (head == null) {
-            head = node;
+    public void makeIntersection(LinkedList other, int position) {
+        if (position > other.size) {
+            System.out.println("position is higher than size");
         }
+        if (head == null) {
+            System.out.println("empty list");
+        }
+        
         else {
             int counter = 1;
-            ListNode current = node;
-            while (current.data != 0) {
+            ListNode current = other.head;
+            while (counter != position) {
                 counter++;
                 current = current.next;
             }
