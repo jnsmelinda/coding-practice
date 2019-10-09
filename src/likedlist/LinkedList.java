@@ -30,16 +30,20 @@ public class LinkedList {
         size++;
     }
 
-    public void addToLast(ListNode node) {
+    public void addToLast(LinkedList other) {
+        ListNode node = other.head;
         if (head == null) {
             head = node;
         }
         else {
+            int counter = 1;
             ListNode current = node;
             while (current.data != 0) {
+                counter++;
                 current = current.next;
             }
             getLast(this.head).next = current.next;
+            size += other.size - counter;
         }
     }
 
