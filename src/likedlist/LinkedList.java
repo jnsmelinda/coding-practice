@@ -14,8 +14,8 @@ public class LinkedList {
                 current = current.next;
             }
             current.next = new ListNode(data);
-            size++;
         }
+        size++;
     }
 
     public void addToFront(int data) {
@@ -27,6 +27,7 @@ public class LinkedList {
             newHead.next = head;
             head = newHead;
         }
+        size++;
     }
 
     @Override
