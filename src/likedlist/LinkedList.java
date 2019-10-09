@@ -30,6 +30,26 @@ public class LinkedList {
         size++;
     }
 
+    public void addToLast(ListNode node) {
+        if (head == null) {
+            head = node;
+        }
+        else {
+            ListNode current = node;
+            while (current.data != 0) {
+                current = current.next;
+            }
+            getLast(this.head).next = current.next;
+        }
+    }
+
+    public ListNode getLast(ListNode current) {
+        while (current.next != null) {
+            current = current.next;
+        }
+        return current;
+    }
+
     @Override
     public String toString() {
         if (head == null){
