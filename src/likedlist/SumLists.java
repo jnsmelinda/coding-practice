@@ -54,20 +54,16 @@ public class SumLists {
         return result;
     }
 
-    private static LinkedList makeList(int[] arr) {
-        LinkedList result = new LinkedList();
-        for (int element : arr) {
-            result.addToTail(element);
-        }
-        return result;
-    }
-
     public static void main(String[] args) {
         int[] arr1 = {7,1,6};
         int[] arr2 = {5,9,2};
-        System.out.println(sumLists1(makeList(arr1), makeList(arr2)));
+        LinkedList list1 = new LinkedList();
+        LinkedList list2 = new LinkedList();
+        System.out.println(sumLists1(list1.makeTheList(arr1), list2.makeTheList(arr2)));
         int[] arr3 = {6,1,7};
         int[] arr4 = {2,9,5};
-        System.out.println(sumLists2(makeList(arr3), makeList(arr4)));
+        LinkedList list3 = new LinkedList();
+        LinkedList list4 = new LinkedList();
+        System.out.println(sumLists1(list3.makeTheList(arr3), list4.makeTheList(arr4)));
     }
 }

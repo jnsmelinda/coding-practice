@@ -45,7 +45,7 @@ public class Intersect {
         list2.makeTheList(arr2);
         System.out.println("list2: " + list2);
         System.out.println();
-        
+
         list1.makeIntersection(list2, 2);
         System.out.println("newlist1: " + list1);
         System.out.println("newlist2: " + list2);
