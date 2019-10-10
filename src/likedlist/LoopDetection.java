@@ -26,16 +26,32 @@ public class LoopDetection {
         return faster;
     }
 
+    public static boolean loopDetector2(LinkedList list){
+        ListNode slower = list.head;
+        ListNode faster = list.head;
+
+        while (faster != null) {
+            faster = faster.next.next;
+            slower = slower.next;
+            if (faster == slower) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
     public static void main(String[] args) {
         int[] arr1 = {1,2,3,4,5,6,7,8,9,0};
         LinkedList list1 = new LinkedList();
         list1.makeTheList(arr1);
         System.out.println("list1: " + list1);
-        list1.makeLoop(5);
+//        list1.makeLoop(5);
         System.out.println(list1.size);
-        list1.printLoop();
+//        list1.printLoop();
 
-        ListNode detected = loopDetector(list1);
-        System.out.println(detected.data);
+//        ListNode detected = loopDetector(list1);
+        System.out.println(loopDetector2(list1));
+//        System.out.println(detected.data);
     }
 }
