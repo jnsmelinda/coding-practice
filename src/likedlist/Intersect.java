@@ -8,13 +8,13 @@ public class Intersect {
         }
 
         LinkedList biggerList = list1.size > list2.size ? list1 : list2;
-        LinkedList smallerlist = list1.size > list2.size ? list2 : list1;
+        LinkedList smallerList = list1.size > list2.size ? list2 : list1;
 
-        int difference = biggerList.size - smallerlist.size;
+        int difference = biggerList.size - smallerList.size;
 
         int counter = 0;
         ListNode currentBigger = biggerList.head;
-        ListNode currentSmaller = smallerlist.head;
+        ListNode currentSmaller = smallerList.head;
 
         return findIntersectingNode(getToEqualSizeNode(difference, counter, currentBigger), currentSmaller);
     }
