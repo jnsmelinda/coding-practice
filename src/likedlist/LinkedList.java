@@ -60,11 +60,23 @@ public class LinkedList {
     public void makeLoop(int position) {
        int counter = 1;
        ListNode current = this.head;
-       while (counter != position) {
-           counter++;
+       while (counter < position) {
            current = current.next;
+           counter++;
        }
-       getLast(this.head).next = current.next;
+       ListNode temp = current;
+       getLast(current).next = temp;
+    }
+
+    public void printLoop(){
+        int counter = 1;
+        ListNode current = this.head;
+        while (counter <= size * 2) {
+            System.out.print(current.data + " ");
+            current = current.next;
+            counter++;
+        }
+        System.out.println();
     }
 
     public ListNode getLast(ListNode current) {
