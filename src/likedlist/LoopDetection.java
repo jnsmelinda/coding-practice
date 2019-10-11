@@ -46,12 +46,12 @@ public class LoopDetection {
         LinkedList list1 = new LinkedList();
         list1.makeTheList(arr1);
         System.out.println("list1: " + list1);
-//        list1.makeLoop(5);
+        list1.makeLoop(5);
         System.out.println(list1.size);
-//        list1.printLoop();
+        list1.printLoop();
 
-//        ListNode detected = loopDetector(list1);
+        ListNode detected = loopDetector(list1);
         System.out.println(loopDetector2(list1));
-//        System.out.println(detected.data);
+        System.out.println(detected.data);
     }
 }
