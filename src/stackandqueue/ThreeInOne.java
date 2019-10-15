@@ -15,6 +15,7 @@ public class ThreeInOne {
             list.add(addToStack(getSubArray(arr, counter), new Stack()));
             counter++;
         }
+
         return list;
     }
 
