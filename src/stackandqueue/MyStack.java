@@ -23,9 +23,9 @@ public class MyStack<T> {
         }
 
         public void push(T item) {
-            StackNode<T> t = new StackNode<>(item);
-            t.next = top;
-            top = t;
+            StackNode<T> newNode = new StackNode<>(item);
+            newNode.next = top;
+            top = newNode;
         }
 
         public T peek(){
