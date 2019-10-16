@@ -7,11 +7,10 @@ import java.util.Stack;
 
 public class SetOfStacks {
 
-    private static List<Stack> listOfStack;
+    private static final List<Stack> listOfStack = new ArrayList<>();
     private static int stackCapacity;
 
     public SetOfStacks(int capacity) {
-        listOfStack = new ArrayList<>();
         stackCapacity = capacity;
     }
 
