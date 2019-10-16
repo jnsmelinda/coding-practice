@@ -1,6 +1,7 @@
 package stackandqueue;
 
 import java.util.ArrayList;
+import java.util.EmptyStackException;
 import java.util.List;
 import java.util.Stack;
 
@@ -8,7 +9,6 @@ public class SetOfStacks {
 
     private static List<Stack> listOfStack;
     private static int stackCapacity;
-    private static Stack currentStack;
 
     public SetOfStacks(int capacity) {
         listOfStack = new ArrayList<>();
@@ -20,23 +20,44 @@ public class SetOfStacks {
     }
 
     public static void push(int n) {
-        if (currentStack == null || currentStack.size() == stackCapacity) {
-            currentStack = new Stack();
-            currentStack.push(n);
-            listOfStack.add(currentStack);
+        if (getCurrentStack().size() == stackCapacity) {
+            listOfStack.add(new Stack());
+            getCurrentStack().push(n);
         }
-        else if (currentStack.size() < stackCapacity) {
-            currentStack.push(n);
+        else if (getCurrentStack().size() < stackCapacity) {
+            getCurrentStack().push(n);
         }
     }
 
+    public static int pop() {
+        if (getCurrentStack().isEmpty()) {
+            throw new EmptyStackException();
+        }
+        int pop = (int) getCurrentStack().pop();
+        if (getCurrentStack().size() == 0) {
+            listOfStack.remove(getCurrentStack());
+        }
+
+        return pop;
+    }
+
+    private static Stack getCurrentStack(){
+        if (listOfStack.isEmpty()) {
+            listOfStack.add(new Stack());
+        }
+
+        return listOfStack.get(listOfStack.size() - 1);
+    }
+
     public static void main(String[] args) {
-        int[] arr = {1,2,3,4,5,6,7,8,9,0};
+        int[] arr = {1,2,3,4,5,6,7,8,9};
         SetOfStacks test = new SetOfStacks(3);
         for (int element : arr) {
             test.push(element);
         }
         System.out.println(test.getStacks());
-
+        System.out.println(test.getCurrentStack());
+        System.out.println(test.pop());
+        System.out.println(test.getStacks());
     }
 }
