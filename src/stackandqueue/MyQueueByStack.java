@@ -5,7 +5,7 @@ import java.util.Stack;
 public class MyQueueByStack {
 
     private static Stack<Integer> stack1, stack2;
-    
+
     public MyQueueByStack() {
         stack1 = new Stack();
         stack2 = new Stack();
