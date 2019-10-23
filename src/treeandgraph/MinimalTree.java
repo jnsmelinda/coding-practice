@@ -2,25 +2,20 @@ package treeandgraph;
 
 public class MinimalTree {
 
-    private static TreeNode root;
+    public static TreeNode root;
 
-    public MinimalTree() {
-        root = null;
+    public MinimalTree(int[] arr) {
+        root = makeMinimal(arr, 0, arr.length - 1);
     }
 
-    public static void makeMinimal(int[] arr) {
-        for (int element : arr) {
-            root = add(root, element);
+    private static TreeNode makeMinimal(int[] arr, int start, int end) {
+        if (start > end) {
+            return null;
         }
-    }
-
-    private static TreeNode add(TreeNode root, int element) {
-            if (root == null) {
-                root = new TreeNode(element);
-            } else if (root.left == null || root.right == null) {
-                root.left = add(root.left, element);
-                root.right = add(root.right, element);
-            }
+        int middle = (start + end) / 2;
+        TreeNode root = new TreeNode(arr[middle]);
+        root.left = makeMinimal(arr, start, middle - 1);
+        root.right = makeMinimal(arr, middle + 1, end);
 
         return root;
     }
@@ -45,9 +40,8 @@ public class MinimalTree {
     }
 
     public static void main(String[] args) {
-        int[] arr = {1, 2, 3, 4, 5, 6, 7, 8, 9, 0};
-        MinimalTree tree = new MinimalTree();
-        tree.makeMinimal(arr);
-        System.out.println(tree);
+        int[] arr = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+        MinimalTree tree = new MinimalTree(arr);
+        tree.printSideways();
     }
 }
