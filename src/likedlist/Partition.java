@@ -42,9 +42,7 @@ public class Partition {
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
         int[] arr = {4,6,5,2,3,7,1,0,8};
-        for (int element : arr) {
-            list.addToTail(element);
-        }
+        list.makeTheList(arr);
         System.out.println(list);
         System.out.println(partition(list, 5));
     }
