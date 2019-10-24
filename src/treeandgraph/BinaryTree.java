@@ -3,6 +3,12 @@ package treeandgraph;
 public class BinaryTree {
     public TreeNode root;
 
+    public BinaryTree(int[] arr){
+        for (int element : arr) {
+            add(element);
+        }
+    }
+
     public BinaryTree(int max) {
         if (max <= 0) {
             throw new IllegalArgumentException("max: " + max);
@@ -50,6 +56,17 @@ public class BinaryTree {
             root.right = add(root.right, value);
         }
         return root;
+    }
+
+    public int height(){
+        return height(root);
+    }
+
+    private int height(TreeNode root) {
+        if (root == null) {
+            return 0;
+        }
+        return 1 + Math.max(height(root.left), height(root.right));
     }
 
     public static void main(String[] args) {
