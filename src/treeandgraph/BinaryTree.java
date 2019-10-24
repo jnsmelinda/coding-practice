@@ -36,4 +36,31 @@ public class BinaryTree {
             printSideways(root.left, level + 1);
         }
     }
+
+    public void add(int value) {
+        root = add(root, value);
+    }
+
+    private TreeNode add(TreeNode root, int value) {
+        if (root == null) {
+            root = new TreeNode(value);
+        } else if (value <= root.data) {
+            root.left = add(root.left, value);
+        } else {
+            root.right = add(root.right, value);
+        }
+        return root;
+    }
+
+    public static void main(String[] args) {
+        BinaryTree tree = new BinaryTree(2);
+        tree.add(6);
+        tree.add(5);
+        tree.add(2);
+        tree.add(9);
+        tree.add(0);
+        tree.add(4);
+        tree.add(8);
+        tree.printSideways();
+    }
 }
