@@ -19,13 +19,11 @@ public class ListOfDepth {
         if (root == null) {
             return;
         }
-        LinkedList<Integer> list;
+        LinkedList<Integer> list = new LinkedList<>();
         if (result.size() == level) {
-            list = new LinkedList<>();
             result.add(list);
-        } else {
-            list = result.get(level);
         }
+        list = result.get(level);
         list.add(root.data);
 
         createLevelLinkedList(root.left, result, level + 1);
