@@ -3,6 +3,10 @@ package treeandgraph;
 public class BinaryTree {
     public TreeNode root;
 
+    public BinaryTree(){
+        root = null;
+    }
+
     public BinaryTree(int[] arr){
         for (int element : arr) {
             add(element);
