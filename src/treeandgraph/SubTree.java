@@ -22,8 +22,6 @@ public class SubTree {
         getLists(node.right, list);
     }
 
-
-
     public static void main(String[] args) {
         int[] arr = {10, 11, 6, 7, 2, 18};
         BinaryTree tree1 = new BinaryTree(arr);
