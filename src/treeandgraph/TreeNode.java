@@ -2,19 +2,9 @@ package treeandgraph;
 
 public class TreeNode {
     public TreeNode left;
-
-    public TreeNode getLeft() {
-        return left;
-    }
-
-    public TreeNode getRight() {
-        return right;
-    }
-
     public TreeNode right;
     public TreeNode parent;
     public int data;
-
 
     public TreeNode(int data, TreeNode left, TreeNode right) {
         this.left = left;
