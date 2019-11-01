@@ -2,6 +2,7 @@ package treeandgraph;
 
 public class BinaryTree {
     public TreeNode root;
+    private int size;
 
     public BinaryTree(){
         root = null;
@@ -10,6 +11,7 @@ public class BinaryTree {
     public BinaryTree(int[] arr){
         for (int element : arr) {
             add(element);
+            size++;
         }
     }
 
@@ -24,6 +26,7 @@ public class BinaryTree {
         if (n > max) {
             return null;
         } else {
+            size++;
             return new TreeNode(n, buildTree(2 * n, max), buildTree(2 * n + 1, max));
         }
     }
@@ -66,6 +69,19 @@ public class BinaryTree {
         return height(root);
     }
 
+    public int size(){
+        return size(root);
+    }
+
+    public int size(TreeNode root) {
+        if (root != null) {
+            return size(root.left) + size(root.right) + 1;
+        }
+        else {
+            return 0;
+        }
+    }
+
     private int height(TreeNode root) {
         if (root == null) {
             return 0;
@@ -74,14 +90,9 @@ public class BinaryTree {
     }
 
     public static void main(String[] args) {
-        BinaryTree tree = new BinaryTree(2);
-        tree.add(6);
-        tree.add(5);
-        tree.add(2);
-        tree.add(9);
-        tree.add(0);
-        tree.add(4);
-        tree.add(8);
+        int[] arr = {2,6,5,2,1,9,0,4,8};
+        BinaryTree tree = new BinaryTree(arr);
         tree.printSideways();
+        System.out.println(tree.size(tree.root.left));
     }
 }
