@@ -65,12 +65,8 @@ public class BinaryTree {
         return root;
     }
 
-    public int height(){
-        return height(root);
-    }
-
-    public int size(){
-        return size(root);
+    public int getSize(){
+        return size;
     }
 
     public int size(TreeNode root) {
