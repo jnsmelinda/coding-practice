@@ -10,24 +10,24 @@ public class ListOfDepth {
         if (root == null) {
             return null;
         }
-        ArrayList<LinkedList<Integer>> result = new ArrayList();
-        createLevelLinkedList(root, result, 0);
-        return result;
+        ArrayList<LinkedList<Integer>> levels = new ArrayList();
+        createLevelLinkedList(root, levels, 0);
+        return levels;
     }
 
-    private void createLevelLinkedList(TreeNode root, ArrayList<LinkedList<Integer>> result, int level) {
+    private void createLevelLinkedList(TreeNode root, ArrayList<LinkedList<Integer>> levels, int level) {
         if (root == null) {
             return;
         }
         LinkedList<Integer> list = new LinkedList<>();
-        if (result.size() == level) {
-            result.add(list);
+        if (levels.size() == level) {
+            levels.add(list);
         }
-        list = result.get(level);
+        list = levels.get(level);
         list.add(root.data);
 
-        createLevelLinkedList(root.left, result, level + 1);
-        createLevelLinkedList(root.right, result, level + 1);
+        createLevelLinkedList(root.left, levels, level + 1);
+        createLevelLinkedList(root.right, levels, level + 1);
     }
 
     public static void main(String[] args) {
