@@ -44,5 +44,4 @@ public class Colours {
             colorUntil(screen, r, c + 1, newColor, prevColor);
         }
     }
-
 }
