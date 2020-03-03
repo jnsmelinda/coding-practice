@@ -5,15 +5,15 @@ import java.util.Arrays;
 public class SortedMatrixSearch {
     public static void main(String[] args) {
         int[][] matrix = new int[4][4];
-        int[] arr = new int[matrix[0].length];
 
+        int counter = matrix[0].length * matrix.length - 1;
         for (int i = 0; i < matrix.length; i++) {
             for (int j = 0; j < matrix[i].length; j++) {
-                matrix[i][j] = arr[i] + 1 + (j + i * matrix[0].length);
+                matrix[i][j] = matrix[0].length * matrix.length - counter;
+                counter--;
             }
         }
         System.out.println(Arrays.deepToString(matrix));
-
         System.out.println(sortedMatrixSearch(matrix, 0));
     }
 
