@@ -1,5 +1,7 @@
 package leetcode.p1295;
 
+import java.util.Arrays;
+
 public class find_numbers_with_even_number_of_digits {
     public static void main(String[] args) {
         int[] arr = {12,345,2,6,7896};
@@ -21,5 +23,15 @@ public class find_numbers_with_even_number_of_digits {
          }
 
          return evens;
+    }
+
+//    Another implementation
+    public static int find(int[] nums) {
+
+            return (int) Arrays.stream(nums)
+                .mapToObj(num -> String.valueOf(num))
+                .filter(str -> str.length() % 2 == 0)
+                .count();
+
     }
 }
