@@ -1,4 +1,4 @@
-package leetcode.p0867.transposematrix;
+package leetcode.p0867_transposematrix;
 
 import java.util.Arrays;
 
