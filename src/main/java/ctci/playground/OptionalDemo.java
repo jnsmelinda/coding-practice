@@ -1,6 +1,8 @@
 package ctci.playground;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Optional;
 
 public class OptionalDemo {
@@ -11,6 +13,15 @@ public class OptionalDemo {
                 .orElse("nincs");
 
         System.out.println(value);
+
+        List<Integer> list = new ArrayList<>();
+        list.add(1);
+
+        Integer[] arrayType = new Integer[1];
+        Integer[] array = list.toArray(arrayType);
+
+        int[] a = list.stream().mapToInt(i -> i).toArray();
+        System.out.println(Arrays.toString(a));
     }
 
     private static String getValue() {
