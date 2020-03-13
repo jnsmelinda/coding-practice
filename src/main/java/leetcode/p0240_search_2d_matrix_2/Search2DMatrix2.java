@@ -1,4 +1,4 @@
-package leetcode.p0240;
+package leetcode.p0240_search_2d_matrix_2;
 
 import java.util.Arrays;
 

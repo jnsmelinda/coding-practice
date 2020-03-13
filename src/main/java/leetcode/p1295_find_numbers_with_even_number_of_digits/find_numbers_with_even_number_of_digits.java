@@ -1,4 +1,4 @@
-package leetcode.p1295;
+package leetcode.p1295_find_numbers_with_even_number_of_digits;
 
 import java.util.Arrays;
 
