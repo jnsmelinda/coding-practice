@@ -24,10 +24,7 @@ public class SelfDividingNums {
     private static boolean getNum(int num) {
         int divisor = num;
         while (divisor > 0) {
-            if (divisor % 10 == 0) {
-                return false;
-            }
-            else if (num % (divisor % 10) != 0) {
+            if (divisor % 10 == 0 || num % (divisor % 10) != 0) {
                 return false;
             }
             divisor /= 10;
