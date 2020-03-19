@@ -5,8 +5,9 @@ import java.util.Arrays;
 public class PeaksAndValleys {
     public static void main(String[] args) {
         int[] arr= {1,2,3,4,5,6,7,8,9};
-        int[] arr2 = {5,3,1,2,3, 0};
-        toPeaksAndValleys1(arr2);
+        int[] arr2 = {5,3,1,2,3,0};
+//        toPeaksAndValleys1(arr2);
+        toPeaksAndValleys2(arr2);
         System.out.println(Arrays.toString(arr2));
     }
 
@@ -32,10 +33,33 @@ public class PeaksAndValleys {
     }
 
 
+    public static void toPeaksAndValleys2(int[] arr) {
+        for (int i = 1; i < arr.length; i += 2) {
+            int maxIndex;
+            if (i+1 >= arr.length) {
+                maxIndex = i;
+            } else {
+                maxIndex = Math.max(i, Math.max(i - 1, i + 1));
+            }
 
-    private static void swap(int left, int right) {
-        int temp = left;
-        left = right;
-        right = temp;
+            if (arr[maxIndex] == arr[i - 1]) {
+//                swap(arr, arr[i - 1], arr[i]);
+                int temp = arr[i];
+                arr[i] = arr[i - 1];
+                arr[i - 1] = temp;
+            }--
+            else if (arr[maxIndex] == arr[i + 1]){
+//                swap(arr, arr[i + 1], arr[i]);
+                int temp = arr[i];
+                arr[i] = arr[i + 1];
+                arr[i + 1] = temp;
+            }
+        }
+    }
+
+    private static void swap(int[] arr, int left, int right) {
+        int temp = arr[left];
+        arr[left] = arr[right];
+        arr[right] = temp;
     }
 }
