@@ -47,7 +47,7 @@ public class PeaksAndValleys {
                 int temp = arr[i];
                 arr[i] = arr[i - 1];
                 arr[i - 1] = temp;
-            }--
+            }
             else if (arr[maxIndex] == arr[i + 1]){
 //                swap(arr, arr[i + 1], arr[i]);
                 int temp = arr[i];
