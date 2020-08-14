@@ -1,4 +1,4 @@
-package hackerrank.aVeryBigSum;
+package hackerrank.a_very_big_sum;
 
 public class VeryBigSum {
     public static void main(String[] args) {

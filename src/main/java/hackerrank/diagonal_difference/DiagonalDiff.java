@@ -1,4 +1,4 @@
-package hackerrank.diagonalDifference;
+package hackerrank.diagonal_difference;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,7 +34,7 @@ public class DiagonalDiff {
         for (int i = 0; i < arr.size(); i++) {
 
             List<Integer> innerList = arr.get(i);
-            
+
             dial1 += innerList.get(dial1Index);
             dial2 += innerList.get(dial2Index);
 
