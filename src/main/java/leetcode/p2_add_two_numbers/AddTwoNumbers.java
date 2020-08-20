@@ -54,11 +54,13 @@ public class AddTwoNumbers {
             current.next = new ListNode(data, null);
             current = current.next;
 
-            if (current1 != null)
+            if (current1 != null) {
                 current1 = current1.next;
+            }
 
-            if (current2 != null)
+            if (current2 != null) {
                 current2 = current2.next;
+            }
         }
 
         if (remainder > 0) {
