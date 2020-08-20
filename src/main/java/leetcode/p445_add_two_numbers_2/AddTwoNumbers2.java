@@ -76,7 +76,6 @@ public class AddTwoNumbers2 {
             if (stack1.empty() && stack2.empty()) {
                 pop1 = 0;
                 pop2 = 0;
-                data = remainder;
             }
             else {
                 pop1 = stack1.pop();
