@@ -5,34 +5,25 @@ import java.util.List;
 
 public class IsBST {
     public static void main(String[] args) {
-        TreeNode root = new TreeNode(1);
-        root.left = null;
-        root.right = new TreeNode(2);
-        root.right.left = new TreeNode(3);
+        TreeNode root = new TreeNode(2);
+        root.left = new TreeNode(1);
+        root.right = new TreeNode(3);
         System.out.println(isValid(root));
     }
 
     public static boolean isValid(TreeNode root) {
-        return help(root);
+        return help(root, null, null);
     }
 
-    public static boolean help(TreeNode root) {
-        if (root.left != null) {
-            if (root.left.val <= root.val) {
-                return false;
-            }
+    public static boolean help(TreeNode root, Integer min, Integer max) {
+        if (root == null) {
+            return true;
         }
-        if (root.right != null) {
-            if (root.right.val > root.val) {
-                return false;
-            }
-        }
-        else {
-            help(root.left);
-            help(root.right);
+        else if (min != null && root.val <= min || max != null && root.val >= max) {
+            return false;
         }
 
-        return true;
+        return help(root.left, min, root.val) && help(root.right, root.val, max);
     }
 
     public static boolean isValidBST(TreeNode root) {
