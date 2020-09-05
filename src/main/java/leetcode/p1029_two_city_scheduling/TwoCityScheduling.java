@@ -2,7 +2,6 @@ package leetcode.p1029_two_city_scheduling;
 
 import java.util.Arrays;
 import java.util.Comparator;
-import java.util.PriorityQueue;
 
 public class TwoCityScheduling {
     public static void main(String[] args) {
