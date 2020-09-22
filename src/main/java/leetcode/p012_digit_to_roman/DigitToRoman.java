@@ -40,7 +40,7 @@ public class DigitToRoman {
             } else {
                 sb.append(roman(decimal * digit));
             }
-            
+
             decimal *= 10;
         }
         sb.reverse();
