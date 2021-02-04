@@ -8,7 +8,6 @@ public class ReverseWordsInString {
 
     public static String reverseWords(String s) {
         s = s.trim().replaceAll(" +", " ");
-        System.out.println(s);
         String current = "";
         StringBuilder reverse = new StringBuilder();
         for (int i = 0; i < s.length(); i++) {
