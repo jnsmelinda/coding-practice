@@ -1,4 +1,4 @@
-package leetcode.p014.longest_common_prefix;
+package leetcode.p014_longest_common_prefix;
 
 public class LongestCommonPrefix {
 
