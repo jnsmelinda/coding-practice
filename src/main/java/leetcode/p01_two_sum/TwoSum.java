@@ -1,4 +1,4 @@
-package leetcode.p01.two_sum;
+package leetcode.p01_two_sum;
 
 import java.util.Arrays;
 
