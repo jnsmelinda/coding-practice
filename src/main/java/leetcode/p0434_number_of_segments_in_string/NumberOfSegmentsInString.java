@@ -5,7 +5,7 @@ import java.util.List;
 
 public class NumberOfSegmentsInString {
     public static void main(String[] args) {
-        System.out.println(countSegments("love live! mu'sic forever"));
+        System.out.println(countSegments2("love live! mu'sic forever"));
     }
 
     public static int countSegments(String s) {
@@ -24,5 +24,13 @@ public class NumberOfSegmentsInString {
 
         }
         return list.size();
+    }
+
+    public static int countSegments2(String s) {
+        String trimmed = s.trim();
+        if (trimmed.equals("")) {
+            return 0;
+        }
+        return trimmed.split("\\s+").length;
     }
 }
