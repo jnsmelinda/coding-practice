@@ -1,6 +1,7 @@
 package leetcode.p501_find_mode_in_bst;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class FindModeInBST {
     public static void main(String[] args) {
@@ -8,29 +9,27 @@ public class FindModeInBST {
         root.left = null;
         root.right = new TreeNode(2);
         root.right.left = new TreeNode(1);
-        System.out.println(Arrays.toString(findMode2(root)));
+        System.out.println(Arrays.toString(findMode(root)));
     }
 
+    public static int[] findMode(TreeNode root) {
+        Map<Integer, Integer> map = new TreeMap<>();
+        freqs(map, root);
+        Map<Integer, Integer> sortedMap = sortByValue(map,
+            (v1,v2) -> v2-v1);
 
+        List<Integer> list = new ArrayList<>();
+        for (Map.Entry<Integer, Integer> entry : sortedMap.entrySet()) {
+            if (list.isEmpty() || sortedMap.get(list.get(0)).equals(entry.getValue())) {
+                list.add(entry.getKey());
+            }
+            else {
+                break;
+            }
+        }
 
-//    public static int[] findMode(TreeNode root) {
-//        Map<Integer, Integer> map = new TreeMap<>();
-//        freqs(map, root);
-//        Map<Integer, Integer> sortedMap = sortByValue(map,
-//            (v1,v2) -> v2-v1);
-//
-//        List<Integer> list = new ArrayList<>();
-//        for (Map.Entry<Integer, Integer> entry : sortedMap.entrySet()) {
-//            if (list.isEmpty() || sortedMap.get(list.get(0)).equals(entry.getValue())) {
-//                list.add(entry.getKey());
-//            }
-//            else {
-//                break;
-//            }
-//        }
-//
-//        return list.stream().mapToInt(Integer::intValue).toArray();
-//    }
+        return list.stream().mapToInt(Integer::intValue).toArray();
+    }
 
     public static int[] findMode2(TreeNode root) {
         Map<Integer, Integer> map = new TreeMap<>();
@@ -61,6 +60,12 @@ public class FindModeInBST {
         map.put(root.val, map.get(root.val) + 1);
         freqs(map, root.left);
         freqs(map, root.right);
+    }
+
+    private static <K,V> Map<K, V> sortByValue(Map<K, V> map, Comparator<? super V> cmp) {
+        return map.entrySet().stream()
+            .sorted(Map.Entry.comparingByValue(cmp))
+            .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new));
     }
 
     public static class TreeNode {
