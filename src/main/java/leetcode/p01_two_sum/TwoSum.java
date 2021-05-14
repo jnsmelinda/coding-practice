@@ -13,7 +13,7 @@ public class TwoSum {
         int counter = 0;
         for (int i = 0; i < nums.length; i++) {
 
-            for (int j = 1; j < nums.length; j++) {
+            for (int j = i + 1; j < nums.length; j++) {
                 if (target - nums[i] == nums[j]) {
                     counter = 1;
                     result[0] = i;
